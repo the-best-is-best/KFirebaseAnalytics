@@ -1,0 +1,32 @@
+[versions]
+firebaseBom = "33.10.0"
+kfirebaseCore = "1.1.2"
+kotlin = "2.1.10"
+compose = "1.7.3"
+agp = "8.7.1"
+androidx-activityCompose = "1.10.1"
+androidx-uiTest = "1.7.8"
+maven-publish = "0.30.0"
+playServicesMeasurementApi = "22.3.0"
+
+
+
+
+[libraries]
+
+androidx-activityCompose = { module = "androidx.activity:activity-compose", version.ref = "androidx-activityCompose" }
+androidx-uitest-testManifest = { module = "androidx.compose.ui:ui-test-manifest", version.ref = "androidx-uiTest" }
+androidx-uitest-junit4 = { module = "androidx.compose.ui:ui-test-junit4", version.ref = "androidx-uiTest" }
+firebase-analytics = { module = "com.google.firebase:firebase-analytics" }
+firebase-bom = { module = "com.google.firebase:firebase-bom", version.ref = "firebaseBom" }
+kfirebase-core = { module = "io.github.the-best-is-best:kfirebase-core", version.ref = "kfirebaseCore" }
+play-services-measurement-api = { group = "com.google.android.gms", name = "play-services-measurement-api", version.ref = "playServicesMeasurementApi" }
+
+[plugins]
+
+multiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "kotlin" }
+compose-compiler = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
+compose = { id = "org.jetbrains.compose", version.ref = "compose" }
+android-application = { id = "com.android.application", version.ref = "agp" }
+android-library = { id = "com.android.library", version.ref = "agp" }
+maven-publish = {id = "com.vanniktech.maven.publish" , version.ref = "maven-publish"}

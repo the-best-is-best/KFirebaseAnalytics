@@ -1,0 +1,3 @@
+language = Objective-C
+package = io.github.native.kfirebaseanalytics
+headers = /Users/michelleraouf/Desktop/kmm/KFirebaseAnalysis/KFirebaseAnalytics/src/interop/libs/macos-arm64_x86_64/FirebaseAnalytics.framework/Headers/FirebaseAnalytics.h
