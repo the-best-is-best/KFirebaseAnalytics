@@ -159,7 +159,7 @@ kotlin {
             if (defFile.exists()) {
                 cinterops.create("FirebaseAnalytics") {
                     defFile(defFile)
-                    packageName = "io.github.native.kfirebase_crashlytics"
+                    packageName = "io.github.native.kfirebaseanalytics"
                 }
             } else {
                 logger.warn("Def file not found for target ${target.name}: ${defFile.absolutePath}")
