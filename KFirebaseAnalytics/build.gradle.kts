@@ -284,9 +284,6 @@ abstract class GenerateDefFilesTask : DefaultTask() {
             "tvosArm64" to "tvos-arm64",
             "tvosX64" to "tvos-arm64_x86_64-simulator",
             "tvosSimulatorArm64" to "tvos-arm64_x86_64-simulator",
-            "watchosArm64" to "watchos-arm64",
-            "watchosX64" to "watchos-arm64_x86_64-simulator",
-            "watchosSimulatorArm64" to "watchos-arm64_x86_64-simulator"
         )
 
         // Helper function to generate header paths
