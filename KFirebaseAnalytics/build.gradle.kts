@@ -148,9 +148,6 @@ kotlin {
                 "tvosX64" -> "tvosX64.def"
                 "tvosArm64" -> "tvosArm64.def"
                 "tvosSimulatorArm64" -> "tvosSimulatorArm64.def"
-                "watchosX64" -> "watchosX64.def"
-                "watchosArm64" -> "watchosArm64.def"
-                "watchosSimulatorArm64" -> "watchosSimulatorArm64.def"
 
                 else -> throw IllegalStateException("Unsupported target: ${target.name}")
             }
@@ -258,6 +255,7 @@ dependencies {
 //        }
 //    }
 //}
+
 abstract class GenerateDefFilesTask : DefaultTask() {
 
     @get:Input
