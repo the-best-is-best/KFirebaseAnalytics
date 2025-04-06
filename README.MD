@@ -29,7 +29,7 @@ implementation("io.github.the-best-is-best:kfirebase-analytics:1.2.0")
 ### androidMain
 
 ```kotlin
-KAndroidFirebaseCore.initialize(this)
+     AndroidKFirebaseCore.initialization(this)
 ```
 
 ### iOS (Using Swift Package Manager - SPM)
