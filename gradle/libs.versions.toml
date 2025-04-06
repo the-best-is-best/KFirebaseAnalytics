@@ -1,13 +1,13 @@
 [versions]
 firebaseBom = "33.10.0"
-kfirebaseCore = "1.1.2"
-kotlin = "2.1.10"
+kfirebaseCore = "1.2.0"
+kotlin = "2.1.20"
 compose = "1.7.3"
-agp = "8.7.1"
+agp = "8.9.0"
 androidx-activityCompose = "1.10.1"
 androidx-uiTest = "1.7.8"
-maven-publish = "0.30.0"
-playServicesMeasurementApi = "22.3.0"
+maven-publish = "0.31.0"
+startupRuntime = "1.2.0"
 
 
 
@@ -20,7 +20,7 @@ androidx-uitest-junit4 = { module = "androidx.compose.ui:ui-test-junit4", versio
 firebase-analytics = { module = "com.google.firebase:firebase-analytics" }
 firebase-bom = { module = "com.google.firebase:firebase-bom", version.ref = "firebaseBom" }
 kfirebase-core = { module = "io.github.the-best-is-best:kfirebase-core", version.ref = "kfirebaseCore" }
-play-services-measurement-api = { group = "com.google.android.gms", name = "play-services-measurement-api", version.ref = "playServicesMeasurementApi" }
+androidx-startup-runtime = { module = "androidx.startup:startup-runtime", version.ref = "startupRuntime" }
 
 [plugins]
 
