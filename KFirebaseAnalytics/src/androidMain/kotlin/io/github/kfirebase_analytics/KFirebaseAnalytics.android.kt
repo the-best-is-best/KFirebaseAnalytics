@@ -1,24 +1,13 @@
 package io.github.kfirebase_analytics
 
-import android.content.Context
 import android.os.Bundle
-import androidx.startup.Initializer
-import com.google.firebase.analytics.FirebaseAnalytics
+import com.google.firebase.Firebase
+import com.google.firebase.analytics.analytics
 import kotlinx.coroutines.tasks.await
 
-internal lateinit var applicationContext: Context
-
-class ApplicationContextInitializer : Initializer<Context> {
-    override fun create(context: Context): Context = context.also {
-        applicationContext = it.applicationContext
-    }
-
-    override fun dependencies(): List<Class<out Initializer<*>>> = emptyList()
-}
 
 actual class KFirebaseAnalytics actual constructor() {
-    private val firebaseAnalytics =
-        FirebaseAnalytics.getInstance(applicationContext)
+    private val firebaseAnalytics = Firebase.analytics
 
     actual fun logEvent(
         eventName: String,

@@ -40,7 +40,7 @@ tasks.withType<PublishToMavenRepository> {
 extra["packageNameSpace"] = "io.github.kfirebase_analytics"
 extra["groupId"] = "io.github.the-best-is-best"
 extra["artifactId"] = "kfirebase-analytics"
-extra["version"] = "1.2.0"
+extra["version"] = "1.2.1"
 extra["packageName"] = "KFirebaseAnalytics"
 extra["packageUrl"] = "https://github.com/the-best-is-best/KFirebaseAnalytics"
 extra["packageDescription"] = "KFirebaseAnalytics is a Kotlin Multiplatform Mobile (KMM) package designed to provide seamless integration with Firebase Analytics across both Android and iOS platforms. This package allows developers to easily track user events, monitor app performance, and gain insights into user behavior through a unified API, without duplicating code for each platform"
@@ -133,7 +133,6 @@ kotlin {
     ).forEach {
         it.binaries.framework {
             baseName = packageName
-            isStatic = true
         }
         it.compilations.getByName("main") {
             val defFileName = when (target.name) {
@@ -174,7 +173,7 @@ kotlin {
         }
 
         commonTest.dependencies {
-            implementation(kotlin("test"))
+            // implementation(kotlin("test"))
 //            @OptIn(ExperimentalComposeLibrary::class)
 //            implementation(compose.uiTest)
         }
@@ -182,11 +181,10 @@ kotlin {
         androidMain.dependencies {
 //            implementation(compose.uiTooling)
 //            implementation(libs.androidx.activityCompose)
-            implementation(project.dependencies.platform(libs.firebase.bom)) // استخدم أحدث BOM
 
             implementation(libs.firebase.analytics)
-            implementation(libs.androidx.startup.runtime)
-
+//            implementation(libs.androidx.startup.runtime)
+            implementation(libs.firebase.analytics.ktx)
         }
 
 //        jvmMain.dependencies {
@@ -206,7 +204,7 @@ kotlin {
 
 android {
     namespace = extra["packageNameSpace"].toString()
-    compileSdk = 35
+    compileSdk = 36
 
     defaultConfig {
         minSdk = 21
@@ -220,39 +218,6 @@ android {
 //        }
     }
 }
-
-//https://developer.android.com/develop/ui/compose/testing#setup
-dependencies {
-    androidTestImplementation(libs.androidx.uitest.junit4)
-    debugImplementation(libs.androidx.uitest.testManifest)
-    //temporary fix: https://youtrack.jetbrains.com/issue/CMP-5864
-    androidTestImplementation("androidx.test:monitor") {
-        version { strictly("1.6.1") }
-    }
-}
-//
-//compose.desktop {
-//    application {
-//        mainClass = "MainKt"
-//
-//        nativeDistributions {
-//            targetFormats(TargetFormat.Dmg, TargetFormat.Msi, TargetFormat.Deb)
-//            packageName = packageName
-//            packageVersion = "1.0.0"
-//
-//            linux {
-//                iconFile.set(project.file("desktopAppIcons/LinuxIcon.png"))
-//            }
-//            windows {
-//                iconFile.set(project.file("desktopAppIcons/WindowsIcon.ico"))
-//            }
-//            macOS {
-//                iconFile.set(project.file("desktopAppIcons/MacosIcon.icns"))
-//                bundleID = "org.company.app.desktopApp"
-//            }
-//        }
-//    }
-//}
 
 abstract class GenerateDefFilesTask : DefaultTask() {
 
@@ -319,6 +284,4 @@ tasks.register<GenerateDefFilesTask>("generateDefFiles") {
     interopDir.set(project.layout.projectDirectory.dir("src/interop"))
 }
 
-tasks.named("build") {
-    dependsOn(tasks.named("generateDefFiles"))
-}
+
